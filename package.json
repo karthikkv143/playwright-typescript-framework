@@ -1,0 +1,30 @@
+{
+  "name": "playwrightwithtypescriptframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test",
+    "test_lastfail": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --last-failed",
+    "test_headed": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --headed",
+    "test_debug": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --debug",
+    "test_dev": "cross-env ENV_NAME=dev ENCRYPTION_KEY=hanuma npx playwright test",
+    "test_dev_ui": "cross-env ENV_NAME=dev ENCRYPTION_KEY=hanuma npx playwright test --ui",
+    "test_qa_ui": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --ui",
+    "test_qa_cr_hd": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --headed --project=chromium --grep=@VISUAL"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  },
+  "dependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "cross-env": "^10.1.0",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^17.4.2"
+  }
+}
