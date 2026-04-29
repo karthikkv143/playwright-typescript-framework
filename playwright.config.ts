@@ -7,7 +7,7 @@ dotenv.config({
 });
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './tests/ui-tests',
 
   fullyParallel: false,
 
@@ -29,7 +29,7 @@ export default defineConfig({
     trace: 'on',
     actionTimeout: 100000,
     navigationTimeout: 100000,
-    baseURL: process.env.BASE_URL as string,
+
   },
 
   /* Configure projects for major browsers */
@@ -47,6 +47,19 @@ export default defineConfig({
         storageState: './authentication/.auth/auth.json'
       },
     },
+    {
+      name: 'api_tests',
+      testMatch: 'api-tests/*.spec.ts',
+      testDir: './tests/api-tests',
+      use: {
+        baseURL: process.env.API_BASE_URL,
+        extraHTTPHeaders: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Basic YWRtaW46cGFzc3dvcmQxMjM='
+        }
+      }
+    }
 
     // {
     //   name: 'firefox',

@@ -24,7 +24,6 @@ export class LoginPage {
      * Navigate to the OrangeHRM login page
      */
     async gotoOrangeHrm() {
-        // console.log(`${process.env.BASE_URL}/web/index.php/auth/login`);
         await this.page.goto(`${process.env.BASE_URL}/web/index.php/auth/login`);
     }
 

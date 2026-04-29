@@ -1,5 +1,5 @@
-import { test, expect } from "../fixtures/hooks-fixtures";
-import pimData from "../testdata/pim-module-data.json";
+import { test, expect } from "../../fixtures/hooks-fixtures";
+import pimData from "../../testdata/ui-data/pim-module-data.json";
 
 test('Verify employee is sucessfully created under PIM module', { tag: ['@UI', '@QA', '@PIM'] }, async ({ page, gotourl, dashboardPage, pimPage }) => {
     await test.step('Login to the application and verify dashboard page', async () => {

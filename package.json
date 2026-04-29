@@ -11,7 +11,9 @@
     "test_dev": "cross-env ENV_NAME=dev ENCRYPTION_KEY=hanuma npx playwright test",
     "test_dev_ui": "cross-env ENV_NAME=dev ENCRYPTION_KEY=hanuma npx playwright test --ui",
     "test_qa_ui": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --ui",
-    "test_qa_cr_hd": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --headed --project=chromium --grep=@VISUAL"
+    "test_qa_cr_hd": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --headed --project=chromium --grep=@VISUAL",
+    "test_api": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --project=api_tests",
+    "test_ui_api": "cross-env ENV_NAME=qa ENCRYPTION_KEY=hanuma npx playwright test --project=chromium --headed --project=api_tests"
   },
   "keywords": [],
   "author": "",

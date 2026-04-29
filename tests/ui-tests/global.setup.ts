@@ -1,4 +1,4 @@
-import { test } from "../fixtures/common-fixtures";
+import { test } from "../../fixtures/common-fixtures";
 
 test(`Global Setup Test`, async ({ commonUtils, loginPage, page, dashboardPage }) => {
     const decryptedUsername = commonUtils.decryptData(process.env.HRM_USERNAME as string);
