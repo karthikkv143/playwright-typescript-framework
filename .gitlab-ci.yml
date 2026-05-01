@@ -1,0 +1,46 @@
+stages:
+  - test
+
+variables:
+  NODE_VERSION: "lts/*"
+  REPORT_PATH: "playwright-report"
+  TEST_RESULTS_PATH: "test-results"
+  # Parametrized test commands - can be overridden when triggering pipeline
+  TEST_COMMAND: "test_api"
+
+image: node:lts
+
+cache:
+  paths:
+    - node_modules/
+  policy: pull-push
+
+playwright_tests:
+  stage: test
+  timeout: 1 hour
+  only:
+    - main
+    - master
+    - merge_requests
+
+  script:
+    - echo "Installing dependencies..."
+    - npm ci
+    - echo "Installing Playwright browsers..."
+    - npx playwright install --with-deps
+    - echo "Running Playwright tests with command: $TEST_COMMAND"
+    - npm run TEST_COMMAND
+  artifacts:
+    when: always
+    paths:
+      - $REPORT_PATH/
+      - $TEST_RESULTS_PATH/
+    expire_in: 30 days
+    reports:
+      junit: test-results/**/*.xml
+  allow_failure: false
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
